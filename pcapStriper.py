@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import struct 
 import sys
 import os
@@ -8,13 +9,13 @@ import argparse
 pcapHeaderStruct = struct.Struct('I H H i I I I')
 pktHeaderStruct = struct.Struct('I I I I')
 
-parser = argparse.ArgumentParser(description="Process bytes.")
+parser = argparse.ArgumentParser(description="Strip first N bytes of packet/frames in the pcap file")
 
 # Add argument for number of bytes
 parser.add_argument("-n", "--numBytes", type=lambda x: int(x) if 1 <= int(x) <= 1000 else argparse.ArgumentTypeError("Number of bytes must be between 1 and 1000"), required=True, help="Number of bytes to remove (between 1 and 1000) from the start of the packet")
 
 # Add argument for stored file (made compulsory)
-parser.add_argument("-f", "--file", type=str, required=True, help="Path to the stored file.")
+parser.add_argument("-f", "--file", type=str, required=True, help="Path to the pcap file that needs to be stipped.")
 # Parse the command-line arguments
 args = parser.parse_args()
 
