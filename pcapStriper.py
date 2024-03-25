@@ -1,5 +1,3 @@
-# Copyright (c) 2023 Arista Networks, Inc.  All rights reserved.
-# Arista Networks, Inc. Confidential and Proprietary.
 import struct 
 import sys
 import os
